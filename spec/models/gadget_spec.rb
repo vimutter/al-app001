@@ -13,10 +13,12 @@ RSpec.describe Gadget, :type => :model do
   end
 
   describe '#for_user' do
+    let(:user) { double(:user, id: 1) }
+
     it 'should return gadgets by user', slow: true do
       one = Gadget.create name: 'test1', description: '1', user_id: 1
       two = Gadget.create name: 'test2', description: '2', user_id: 2
-      expect(Gadget.for_user double(:user, id: 1).to_a).to eql([a])
+      expect(Gadget.for_user(user).to_a).to eql([one])
     end
   end
 end

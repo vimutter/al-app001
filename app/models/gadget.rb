@@ -8,4 +8,6 @@ class Gadget < ActiveRecord::Base
   validates_length_of :description, maximum: 1000
 
   validates_presence_of :user_id
+
+  scope :for_user, ->(user) { where user_id: user.try(:id) }
 end
