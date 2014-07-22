@@ -5,8 +5,10 @@ RSpec.describe Gadget, :type => :model do
 
   context 'validations' do
     it { should validate_presence_of :name }
+    it { should validate_uniqueness_of(:name).scoped_to :user_id }
+    it { should ensure_length_of(:name).is_at_most 250 }
     it { should validate_presence_of :description }
+    it { should ensure_length_of(:description).is_at_most 1000 }
     it { should validate_presence_of :user }
-    it { should validate_uniqueness_of :name, scope: :user_id }
   end
 end
