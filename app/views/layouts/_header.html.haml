@@ -1,0 +1,22 @@
+.navbar.navbar-default.navbar-fixed-top
+  %span.navbar-brand= t 'title'
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", type: "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li= link_to t('.gadgets'), gadgets_path
+      %ul.nav.navbar-nav.navbar-right
+        %li#current-organization-container
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{ data: { toggle: 'dropdown' } }
+              %span.glyphicon.glyphicon-user
+            %ul.dropdown-menu
+              %li
+                %a= current_user.name
+              %li
+                = button_to t('.log_out'), destroy_user_session_path(current_user), :method=>:delete, :class=>:destroy
