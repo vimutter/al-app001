@@ -5,4 +5,5 @@ class GadgetsController < ApplicationController
     @gadgets = Gadget.for_user(current_user).page(params[:page]).per(10)
     @panel = TRUE.include?(params[:panel])
   end
+
 end

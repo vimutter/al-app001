@@ -1,0 +1,10 @@
+= link_to t('.new'), new_gadget_path
+- @gadgets.each do |gadget|
+  .col-md-6
+    = image_tag gadget.pictures.first.try(:image).try(:url, 'thumb')
+    .name
+      = gadget.name
+    .description
+      = gadget.description
+
+= paginate @gadgets
