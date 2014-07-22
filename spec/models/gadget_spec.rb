@@ -9,6 +9,14 @@ RSpec.describe Gadget, :type => :model do
     it { should ensure_length_of(:name).is_at_most 250 }
     it { should validate_presence_of :description }
     it { should ensure_length_of(:description).is_at_most 1000 }
-    it { should validate_presence_of :user }
+    it { should validate_presence_of :user_id }
+  end
+
+  describe '#for_user' do
+    it 'should return gadgets by user', slow: true do
+      one = Gadget.create name: 'test1', description: '1', user_id: 1
+      two = Gadget.create name: 'test2', description: '2', user_id: 2
+      expect(Gadget.for_user double(:user, id: 1).to_a).to eql([a])
+    end
   end
 end

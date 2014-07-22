@@ -7,5 +7,5 @@ class Gadget < ActiveRecord::Base
   validates_presence_of :description
   validates_length_of :description, maximum: 1000
 
-  validates_presence_of :user
+  validates_presence_of :user_id
 end

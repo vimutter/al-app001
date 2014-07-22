@@ -48,3 +48,5 @@ end
 
 gem 'devise'
 gem 'paperclip'
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
