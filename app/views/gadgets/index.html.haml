@@ -1,8 +1,13 @@
 .col-md-12
   = link_to t('.new'), new_gadget_path
+  |
+  = link_to t('.table'), gadgets_path(mode: :table)
+  |
+  = link_to t('.list'), gadgets_path(mode: :list)
+
   - @gadgets.each do |gadget|
     .col-md-6
-      = image_tag gadget.pictures.first.try(:image).try(:url, 'thumb')
+      = image_tag gadget.pictures.first.try(:image).try(:url, :thumb)
       .name
         = gadget.name
       .description

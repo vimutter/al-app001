@@ -9,5 +9,7 @@ class Gadget < ActiveRecord::Base
 
   validates_presence_of :user_id
 
+  has_many :pictures
+
   scope :for_user, ->(user) { where user_id: user.try(:id) }
 end

@@ -35,4 +35,14 @@ RSpec.describe GadgetsController, :type => :controller do
       expect(assigns[:gadgets]).to eql [gadget]
     end
   end
+
+  describe '#new' do
+
+  end
+
+  describe '#create' do
+  end
+
+  describe '#gadget_attributes' do
+  end
 end

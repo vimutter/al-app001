@@ -6,4 +6,21 @@ class GadgetsController < ApplicationController
     @panel = TRUE.include?(params[:panel])
   end
 
+  def new
+    @gadget = Gadget.new
+  end
+
+  def create
+    @gadget = Gadget.new gadget_attributes
+    @gadget.save
+
+    respond_with @gadget
+  end
+
+  protected
+
+  def gadget_attributes
+    params.require(:gadget).
+      permit(:name, :description, picture_attributes: [:image])
+  end
 end
